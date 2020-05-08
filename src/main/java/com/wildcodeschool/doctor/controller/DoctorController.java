@@ -14,10 +14,8 @@ public class DoctorController {
     @GetMapping("/doctor/{number}")
     @ResponseBody
     public Object doctor(@PathVariable("number") int number) {
-        Doctor doc = new Doctor();
         if(number == 13) {
-            doc.setName("Jodie Whittaker");
-            doc.setNumber(13);
+            Doctor doc = new Doctor(13, "Jodie Whittaker");
             return doc;
         } else if(number >=1 && number <= 12) {
             throw new ResponseStatusException(HttpStatus.SEE_OTHER);
